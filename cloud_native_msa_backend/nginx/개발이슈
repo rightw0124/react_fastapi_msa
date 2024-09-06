@@ -1,0 +1,20 @@
+1. SSL 설치를 해야하지만 로컬환경에서 개발할 목적이라 설치생략함
+2. c\nginx conf 설정시 각 구성에 대한 설정할떄 문제생김 
+ㄴ  [warn] the "listen ... http2" directive is deprecated, use the "http2" directive instead in C:\nginx-1.26.2/conf/nginx.conf:23
+아래는 conf 파일 구성
+ 기존
+ server {
+        listen 80 http2;  # Enable HTTP/2 on port 80 (no SSL)
+        server_name localhost;  # Use localhost or your local IP address
+ }
+ 변경후
+ server {
+        listen 80;              # Listen on port 80
+        http2;                  # Use the new directive to enable HTTP/2
+        server_name localhost;  # Use localhost or your local IP address}
+        }로 변경함
+"이유는 더 이상 사용되지 않는 지시어: listen ... http2 지시어는 여전히 작동하지만 더 이상 
+사용되지 않는 것으로 표시됩니다.
+ NGINX는 HTTP/2를 지정하기 위해 최신 구문을 사용할 것을 권장합니다"
+ 바꿈으로써 해결함
+ 

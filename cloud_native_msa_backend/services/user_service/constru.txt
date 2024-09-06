@@ -1,0 +1,21 @@
+user_service/
+├── app/
+│   ├── __init__.py
+│   ├── main.py  # Entry point of the application, sets up the FastAPI app and includes routers
+│   ├── auth/
+│   │   ├── __init__.py
+│   │   └── jwt_handler.py  # JWT related functions (token creation, validation, etc.)
+│   ├── routes/
+│   │   ├── __init__.py
+│   │   ├── login.py        # Login related routes and logic
+│   │   ├── register.py     # Registration related routes and logic
+│   │   ├── logout.py       # Logout related routes and logic
+│   │   └── unregister.py   # Unregistration related routes and logic
+│   ├── schema/
+│   │   └── user_schema.py  # Pydantic models for user input validation
+│   ├── db/
+│   │   └── redis_client.py  # Redis client configuration and management
+│   └── utils/
+│       └── hashing.py      # Utility functions for password hashing and validation
+├── Dockerfile
+└── requirements.txt

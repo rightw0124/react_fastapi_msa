@@ -1,0 +1,68 @@
+version: '3.8'
+
+services:
+  user_service:
+    build:
+      context: ./services/user_service
+    ports:
+      - "8001:8000"
+
+  chatbot_service:
+    build:
+      context: ./services/chatbot_service
+    ports:
+      - "8002:8000"
+
+  custom_data_service:
+    build:
+      context: ./services/custom_data_service
+    ports:
+      - "8003:8000"
+
+  graphql_service:
+    build:
+      context: ./services/graphql_service
+    ports:
+      - "8000:8000"
+
+  nginx:
+    build: ./nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - graphql_service
+      - user_service
+      - chatbot_service
+      - custom_data_service
+
+
+
+#chatbot_service/Dockerfile
+
+# version: "3.8"
+
+# services:
+#   chatbot_service:
+#     build:
+#       context: ./chatbot_service
+#     ports:
+#       - "8000:8000"
+#     depends_on:
+#       - mongo
+#       - rasa
+
+#   rasa:
+#     build:
+#       context: ./chatbot_service/rasa
+#     ports:
+#       - "5005:5005"
+
+#   mongo:
+#     image: mongo:4.4
+#     ports:
+#       - "27017:27017"
+#     volumes:
+#       - mongo_data:/data/db
+
+# volumes:
+#   mongo_data:

@@ -1,0 +1,19 @@
+chatbot_service/
+├── app/
+│   ├── __init__.py
+│   ├── main.py                  # Entry point for FastAPI application
+│   ├── schema/
+│   │   └── chatbot_schema.py    # Pydantic models for data validation
+│   └── db/
+│       └── mongo_client.py      # MongoDB client configuration
+├── rasa/                        # Rasa-related files and configuration
+│   ├── actions/                 # Custom action files
+│   ├── data/                    # Training data (nlu, stories)
+│   ├── models/                  # Trained models directory
+│   ├── config.yml               # Rasa configuration
+│   ├── credentials.yml          # Rasa credentials configuration
+│   ├── domain.yml               # Rasa domain file
+│   ├── endpoints.yml            # Rasa endpoints configuration
+│   └── Dockerfile               # Dockerfile for Rasa
+├── Dockerfile                   # Dockerfile for FastAPI service
+└── requirements.txt             # Python dependencies for FastAPI

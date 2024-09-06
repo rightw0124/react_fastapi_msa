@@ -1,0 +1,1 @@
+docker run -p 5005:5005 -v c:\temp\rara:/app -d -it  rasa/rasa:3.6.20-full shell
